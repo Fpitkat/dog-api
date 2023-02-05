@@ -1,4 +1,6 @@
 const form = document.querySelector('form')
+const alert2 = document.querySelector('.alert')
+
 form.addEventListener('submit', function (e) {
   const input = document.querySelector('input').value
   e.preventDefault()
@@ -24,7 +26,12 @@ async function getDogByBreed(breed) {
       throw Error('Image not found')
     }
   } catch (error) {
-    alert('dog not found')
+    alert2.classList.toggle('d-none')
+
+    setTimeout(() => {
+      alert2.classList.toggle('d-none')
+    }, '3000')
+
     getDog()
   }
 }
